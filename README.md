@@ -35,7 +35,9 @@ I selected three major questions from the "TEDS Telephone and Mobile Phone Inter
 2. How satisfied are you with the president's performance in national defense?
 3. What is the highest priority concern the president should address (other than COVID-19, for the most recent years)?
 
-This script aggregates total survey data from years 2012-2021, filters out only the data for those three questions and arranges it into a dataframe grouped by survey year/quarter and expressing all data points as the percentage of total respondents who held each sentiment. The dataframe contains columns for all values of Q1 and Q2, named `unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`, `vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`. With regard to Q3, the code filters out only the proportion of people who chose Cross-strait relations as the highest priority concern, inputs it as column `xstrait` and drops the rest of the input values for that question. Output as _`teds.csv`_.
+This script aggregates total survey data from years 2012-2021, filters out only the data for those three questions and arranges it into a dataframe grouped by survey year/quarter and expressing all data points as the percentage of total respondents who held each sentiment. The dataframe contains columns for all values of Q1 and Q2, named `unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`, `vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`. 
+
+With regard to Q3, the code filters out only the proportion of people who chose Cross-strait relations as the highest priority concern, inputs it as column `xstrait` and drops the rest of the input values for that question. Output as _`teds.csv`_.
 #### Charts and analysis
 TBA
 ### 3. dippol.py
