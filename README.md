@@ -11,7 +11,7 @@ This project uses Taiwanese Election and Democratization polling data, public U.
 - How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of national defense** and the **urgency of these issues** changed over time? Are there any relationships between the three?
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the trends in Taiwanese political attitudes?
 - Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance**?
-- (_maaaaybe_) Considering Taiwan's public perception as a symbol of democracy, what are the governance qualities of its few diplomatic allies?
+- (_almost definitely dropping this one_) Considering Taiwan's public perception as a symbol of democracy, what are the governance qualities of its few diplomatic allies?
 
 Note: Taiwan's primary (pretty much only) national defense concern is potential attack from China, which is why it is linked to Cross-strait relations. It maintains a defensive military. The U.S. is Taiwan's primary source of military aid.
 ## Data 
@@ -48,7 +48,7 @@ This script aggregates total survey data from years 2012-2021, filters out only 
 TBA
 ### 4. dippol.py
 ----
-//DRAFT - MAY REMOVE ENTIRELY, DIDN'T ACTUALLY WRITE THIS YET
+//DRAFT - MAY REMOVE ENTIRELY, DIDN'T ACTUALLY WRITE THIS SCRIPT YET
 
 This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
 #### Creating table of Taiwan's democracy ratings
@@ -60,6 +60,7 @@ Output line graph _`taiwanpol.png`_, a visualization of how 'democratic' Taiwan'
 ### 5. compgraphs.py
 ----
 //TBA, VERY DRAFT
+
 This script combines data from the previous scripts and builds graphs with `PANDAS` layering different data trends over each other.
 
 #### Parsing total military aid data to standardize units of time (x-axis variable)
