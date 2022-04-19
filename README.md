@@ -60,12 +60,14 @@ This script combines data from the previous scripts and builds graphs with `PAND
 Output _`placeholder.png`_.
 #### Comparing TEDS data to Taiwan's democracy ratings
 Output _`moreplaceholder.png`_.
-## Summary
+## Summary/Conclusions
 //TBA, DRAFT 
 #### Output charts and graphs
 TBA
 
 Causal relationships could go either way
+#### Notes on military aid dataframe
+Merged data generated in _`aidmerge.py`_ should not be considered an exact accounting of U.S. military aid to Taiwan. It is a piecemeal combination of all the major transactions I could identify, but there are other types of military aid that are unavailable to the public, vaguely classified, tangentially related and/or originating in other unexpected U.S. federal agencies (thus easily overlooked). Hopefully these data points still hold a roughly similar relationship to each other year-over-year, so this comparison of relative data _trends_ is more meaningful than their stated values. 
 #### Comparing diplomatic relationship trends to other data???
 My attempts to compare partners' Polity Scores with Taiwan's election and democratization sentiments were extremely shallow. There are too many major geopolitical factors which have affected countries' diplomatic recognition of Taiwan that are not explored in this analysis, and formal diplomatic alliances are not of much concern to the average voter. Comparing this data to U.S. foreign aid is also unlikely to be meaningful as it cannot be condensed into simple annual values (averaging scores would be nonsensical, histograms would be uninformative). So, I didn't do anything else with this data.
 ## Data and Sources
