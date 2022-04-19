@@ -18,6 +18,8 @@ Note: Taiwan's primary national defense concern is potential attack from China, 
 TBA, sources at end - 
 Analysis runs 2012-2021 as these are the only years with complete election/democratization data
 
+Coded translation from Chinese characters to English text
+
 ## Scripts
 ### 1. aidmerge.py
 ----
