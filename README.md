@@ -30,11 +30,11 @@ First renamed Chinese character column headings to English text using positional
 ### 2. aidmerge.py
 ----
 #### Building merged dataframe summing different types of U.S. military aid 
-Tracked six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`majorsalessince1990.csv`, `ciparmssales.csv`), security assistance spending (`cipsas.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`eda.csv`), foreign assistance purposed for conflict, peace and security (`foreignassistance.csv`) and overseas loans and grants for military spending (`greenbook.csv`). Datasets were not consistently formatted, so filtered out Taiwan-specific and purpose-specific data from global datasets and used code to sum individual allocations into single totals per year. Merged these six cleaned datasets together under common key values into _`aidmerge.csv`_, a file listing the amount of military aid the U.S. provided to Taiwan each year, by type and overall. Checked to ensure all tracked years contain data for all six types of aid (expenditures of $0 are not missing values).
+Tracked six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`majorsalessince1990.csv`, `ciparmssales.csv`), security assistance spending (`cipsas.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`eda.csv`), foreign assistance purposed for conflict, peace and security (`foreignassistance.csv`) and overseas loans and grants for military spending (`greenbook.csv`). Datasets were not consistently formatted, so filtered out Taiwan-specific and purpose-specific data from global datasets and trimmed to time period for analysis. Coded equation to sum all individual allocations into single totals per year. Merged these six cleaned datasets together under common key value `year` into _`aidmerge.csv`_, a file listing the amount of military aid the U.S. provided to Taiwan each year, by type and overall. Checked to ensure all tracked years contain data for all six types of aid (expenditures of $0 are not missing values).
 
-Notes: Because there are differences between the amounts of U.S. foreign arms sales that are _notified_, _approved_ and _delivered_, major arms sales is represented in three corresponding columns. However, the equation for `total sum` of aid provided per year uses only the amount of sales delivered. Foreign military training and excess defense articles, which are 'in kind' forms of aid, had to be converted to representative monetary amounts; approximation rates were provided by the issuing bodies. 
+Notes: Because there are differences between the amounts of U.S. foreign arms sales that are notified, approved and delivered, major arms sales is represented in three corresponding columns `Notified Sales`, `Approved Sales`, `Delivered Sales`. However, the equation for `total sum` of aid provided per year uses only the amount `Delivered Sales`. Foreign military training and excess defense articles, which are 'in kind' forms of aid, had to be converted to representative monetary amounts; approximation rates were provided by the issuing bodies. 
 #### Charts and analysis
-Output line graph of total spending, _`aidmerge.png`_. Output clustered bar chart of types of spending, _`aidtypes.png`_.
+Output line graph of total spending over time, _`aidmerge.png`_. Output clustered bar chart of types of spending over time, _`aidtypes.png`_.
 ### 3. teds.py 
 ----
 #### Aggregating and cleaning election and democratization data
@@ -54,9 +54,10 @@ Filtered out Taiwan's polity score for each year and saved this brief table as _
 #### (Charting Taiwan's diplomatic relationships and governance qualities of those allies - may remove this)
 Cleaned data into two dictionaries: `allies` paired each year (key) with a list of all countries that did have official diplomatic relations with Taiwan at that time, and `polity` paired each country (key) with a second dictionary using years as keys and polity scores as values. From this, the script translated each year into a list of all polity scores associated with Taiwan's diplomatic partners and output one dataframe grouping country lists and polity score lists by year. I added column `totalnum` summing the number of diplomatic allies (number of values in either list) per year. Saved into _`dippol.csv`_.
 #### Charts and analysis
-Output line graph _`taiwanpol.png`_, a visualization of how 'democratic' Taiwan's government has been over time. Output line graph _`allies.png`_, a chart of `totalnum` over `year`. Output graph set _`ex1.png`_, a yearly snapshot of the types of regimes that chose to recognize Taiwan based on their polity scores. more detail TBA
+Output line graph _`taiwanpol.png`_, a visualization of how 'democratic' Taiwan's government has been over time. Output line graph _`allies.png`_, a chart of `totalnum` over `year`. Output chart set _`ex1.png`_, a yearly snapshot of the types of regimes that chose to recognize Taiwan each year based on their polity scores. more detail TBA
 ### 5. compgraphs.py
 ----
+//TBA, VERY DRAFT
 This script combines data from the previous scripts and builds graphs with `PANDAS` layering different data trends over each other.
 #### Comparing TEDS data to U.S. military aid
 Output _`placeholder.png`_.
