@@ -16,6 +16,7 @@
 - `EDA_Public_Report.csv`
 - `foreignassistance.csv`
 - `us_foreign_greenbook.csv` - _pulled from API_
+- `dipreg.csv`
 - TEDS datasets: _multiple datasets, full list TBA unless I can find API_ 
 ## Created Intermediary Datasets 
 - Translated TEDS datasets (see above)
