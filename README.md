@@ -8,7 +8,7 @@ The U.S. is statutorily committed to providing Taiwan with arms for its national
 
 This project uses Taiwanese Election and Democratization polling data, public U.S. federal government military spending data and the third party Polity Score metric for assessing democratic/autocratic governance to explore the following questions:
 
-- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification) and **government handling of national defense** changed over time? Are there any relationships between the two?
+- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of national defense** and the **urgency of these issues** changed over time? Are there any relationships between the three?
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the trends in Taiwanese political attitudes?
 - Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance**?
 - (_maaaaybe_) Considering Taiwan's public perception as a symbol of democracy, what are the governance qualities of its few diplomatic allies?
