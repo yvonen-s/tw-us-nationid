@@ -13,8 +13,10 @@ This project uses Taiwanese Election and Democratization polling data, public U.
 - _(may remove this component, data results are not looking helpful rn)_ Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic alliancess**? 
 
 Note: Taiwan's primary (pretty much only) national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military with questionability capability and limited active recruits despite mandatory conscription terms. The U.S. is Taiwan's primary source of military aid.
+
+Summary of repository files in `readme_contents.md`.
 ## Data 
-//TBD, DRAFT
+//TBD, DRAFT NOTES
 - Sources at end 
 - Analysis runs 2012-2020 as these are the only years with complete election/democratization data collection begain in 2012 and not all military data had updates for 2021
 - Not using TEDS microdata so will not be charting changes in individual attitudes over time, only national percentages
