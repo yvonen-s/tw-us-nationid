@@ -14,7 +14,7 @@ This project uses Taiwanese Election and Democratization polling data, public U.
 
 Note: Taiwan's primary (pretty much only) national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military with questionability capability and limited active recruits despite mandatory conscription terms. The U.S. is Taiwan's primary source of military aid.
 
-Summary of repository files in `readme_contents.md`.
+Summary of repository files in `README_CONTENTS.md`.
 ## Data 
 //TBD, DRAFT NOTES
 - Sources at end 
