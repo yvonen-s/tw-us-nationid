@@ -1,5 +1,5 @@
 # Comparing Trends in Taiwanese Election and Democratization Data and U.S.-to-Taiwan Military Aid
-## Project Overview 
+## Project Overview and Context
 //////////////TBA, DRAFT 
 
 'Cross-strait' relations between Taiwan (R.O.C.) and mainland China (P.R.C.) have always been deeply contentious. China maintains it has ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted as separately governed bodies without violent conflict, and Taiwan has operated with _de jure_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has made increasing efforts to strengthen its policy relationships with the U.S. 
@@ -8,16 +8,18 @@ The U.S. is statutorily committed to providing Taiwan with arms for its national
 
 This project uses Taiwanese Election and Democratization polling data, public U.S. federal government military spending data and the third party Polity Score metric for assessing democratic/autocratic governance to explore the following questions:
 
-- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of national defense** and the **urgency of these issues** changed over time? Are there any relationships between the three?
+- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of national defense** and the **urgency of these issues** changed over time? 
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the trends in Taiwanese political attitudes?
-- _(may remove this component, data results are not looking helpful rn)_ Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic allies**? 
+- _(may remove this component, data results are not looking helpful rn)_ Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic alliancess**? 
 
 Note: Taiwan's primary (pretty much only) national defense concern is potential attack from China, which is why it is linked to Cross-strait relations. It maintains a defensive military. The U.S. is Taiwan's primary source of military aid.
 ## Data 
 TBA, DRAFT
-- Sources at the end 
-- Analysis runs 2012-2020 as these are the only years with complete election/democratization data collection begain in 2012 and not all military datasets had updates for 2021
-- More specific information for each dataset and command is in script itself
+- Sources at end 
+- Analysis runs 2012-2020 as these are the only years with complete election/democratization data collection begain in 2012 and not all military data had updates for 2021
+- Not using TEDS microdata so will not be charting changes in individual attitudes over time, only national percentages
+- No regression analysis or causal conclusions, they could run either way anyways
+- More specific information for datasets and commands in scripts themselves
 ## Scripts
 TBA, DRAFT 
 ### 1. translate.py
