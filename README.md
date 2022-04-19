@@ -1,9 +1,9 @@
 # Comparing Trends in Taiwanese Election and Democratization Data with U.S.-to-Taiwan Military Aid
-# Project Overview
-# Datasets
-# Scripts
-# Outputs
-# Data Sources
+## Project Overview
+## Datasets
+## Scripts
+## Outputs
+## Data Sources
 - Taiwan's Election and Democratization Study (TEDS), Taiwan Ministry of Science and Technology: http://teds.nccu.edu.tw/main.php
 - Taiwan: Major U.S. Arms Sales Since 1990, Congressional Research Service  
 - Arms Sales, Security Assistance Spending and Foreign Military Training Databases, CIP Security Assistance Monitor: https://securityassistance.org
