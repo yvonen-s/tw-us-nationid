@@ -62,10 +62,12 @@ Output line graph _`taiwanpol.png`_, a visualization of how 'democratic' Taiwan'
 //TBA, VERY DRAFT
 This script combines data from the previous scripts and builds graphs with `PANDAS` layering different data trends over each other.
 
-#### Parsing total military aid data to standardize units of time
+#### Parsing total military aid data to standardize units of time (x-axis variable)
+//is there an easier way to do this??
+
 As the TEDS data is collected quarterly while military aid statistics are yearly, grouped aid data in the merged aid dataframe needed to be split so each year in dataset would instead be represented by four rows containing identical spending values but with `year` values renamed to correspond with the TEDS data increments (e.g. from `2013` to `2013Q1`, `2013Q2`, `2013Q3` and `2013Q4`).
 
-To do this, first trimmed aid data to `year` and `totalsum` columns only for simplification. Created empty dataframe `quarterlyaidmerge`. Used `for` loop adding `Q1` to the end of every year name and appended full rows to `quarterlyaidmerge` (without saving changes to original data). Repeated three more times, adding `Q2`, `Q3` and `Q4`. Used `quarterlyaidmerge` in subsequent graph comparisons.
+To do this, first simplified aid data by trimming to `year` and `totalsum` columns only. Created empty dataframe `quarterlyaidmerge`. Used `for` loop adding `Q1` to the end of every year name and appending full rows to `quarterlyaidmerge` (without saving changes to original data). Repeated three more times, adding `Q2`, `Q3` and `Q4`. Used `quarterlyaidmerge` in subsequent graph comparisons.
 `
 #### Comparing TEDS data to U.S. military aid
 Output _`placeholder.png`_.
