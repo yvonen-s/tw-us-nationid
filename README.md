@@ -57,10 +57,10 @@ Output _`placeholder.png`_.
 #### Comparing TEDS data to Taiwan's democracy ratings
 Output _`moreplaceholder.png`_.
 ## Summary
-#### Insights from data comparisons
+#### Output charts and graphs
 TBA
 
-If there's any causal relationship, it could go either way
+Causal relationships could go either way
 #### Comparing diplomatic relationship trends to other data???
 My attempts to compare partners' Polity Scores with Taiwan's election and democratization sentiments were extremely shallow. There are too many major geopolitical factors which have affected countries' diplomatic recognition of Taiwan that are not explored in this analysis, and formal diplomatic alliances are not of much concern to the average voter. Comparing this data to U.S. foreign aid is also unlikely to be meaningful as it cannot be condensed into simple annual values (averaging scores would be nonsensical, histograms would be uninformative). So, I didn't do anything else with this data.
 ## Data and Sources
