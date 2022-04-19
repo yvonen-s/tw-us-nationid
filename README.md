@@ -19,11 +19,15 @@ Note: Taiwan's primary national defense concern is potential attack from China, 
 - Sources at the end 
 - Analysis runs 2012-2021 as these are the only years with complete election/democratization data
 - Might remove polity score data altogether if results are unhelpful (it's looking like they might be)
-- Coded translation from Chinese characters to English text
-
 ## Scripts
 //TBA, DRAFT 
-### 1. aidmerge.py
+### 1. translate.py
+----
+#### Translating Chinese character data to English text
+Used `PANDAS` to read Taiwanese-originating Election and Democratization dataset into variable `teds`. I only coded translations for the questions I planned to analyze as the rest of the data will be dropped.
+
+First renamed Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. For response values, created dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (`approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Used `.replace()` method with `{'Satisfaction Level':approvallist}` as argument and saved to _`teds.csv`_ for use in later scripts.
+### 2. aidmerge.py
 ----
 #### Building merged dataframe summing different types of U.S. military aid 
 Tracked six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`majorsalessince1990.csv`, `ciparmssales.csv`), security assistance spending (`cipsas.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`eda.csv`), foreign assistance purposed for conflict, peace and security (`foreignassistance.csv`) and overseas loans and grants for military spending (`greenbook.csv`). Datasets were not consistently formatted, so filtered out Taiwan-specific and purpose-specific data from global datasets and used code to sum individual allocations into single totals per year. Merged these six cleaned datasets together under common key values into _`aidmerge.csv`_, a file listing the amount of military aid the U.S. provided to Taiwan each year, by type and overall. Checked to ensure all tracked years contain data for all six types of aid (expenditures of $0 are not missing values).
@@ -31,7 +35,7 @@ Tracked six major types of military aid that the U.S. has provided to Taiwan: ma
 Notes: Because there are differences between the amounts of U.S. foreign arms sales that are _notified_, _approved_ and _delivered_, major arms sales is represented in three corresponding columns. However, the equation for `total sum` of aid provided per year uses only the amount of sales delivered. Foreign military training and excess defense articles, which are 'in kind' forms of aid, had to be converted to representative monetary amounts; approximation rates were provided by the issuing bodies. 
 #### Charts and analysis
 Output line graph of total spending, _`aidmerge.png`_. Output clustered bar chart of types of spending, _`aidtypes.png`_.
-### 2. teds.py 
+### 3. teds.py 
 ----
 #### Aggregating and cleaning election and democratization data
 I selected three major questions from the "TEDS Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction", which is conducted 4 times a year since 2012:
@@ -39,12 +43,10 @@ I selected three major questions from the "TEDS Telephone and Mobile Phone Inter
 2. How satisfied are you with the president's performance in national defense?
 3. What is the highest priority concern the president should address (other than COVID-19, for the most recent years)?
 
-This script aggregates total survey data from years 2012-2021, filters out only the data for those three questions and arranges it into a dataframe grouped by survey year/quarter and expressing all data points as the percentage of total respondents who held each sentiment. The dataframe contains columns for all values of Q1 and Q2, named `unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`, `vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`. 
-
-With regard to Q3, the code filters out only the proportion of people who chose Cross-strait relations as the highest priority concern, inputs it as column `xstrait` and drops the rest of the input values for that question. Output as _`teds.csv`_.
+This script aggregates total survey data from years 2012-2021, filters out only the data for those three questions and arranges it into a dataframe grouped by survey year/quarter and expressing all data points as the percentage of total respondents who held each sentiment. The dataframe contains columns for all values of Q1 and Q2, named `unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`, `vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`. (This information was translated from Chinese in the first script.) With regard to Q3, the code filters out only the proportion of people who chose Cross-strait relations as the highest priority concern, inputs it as column `xstrait` and drops the rest of the input values for that question. Output as _`tedssorted.csv`_.
 #### Charts and analysis
 TBA
-### 3. dippol.py
+### 4. dippol.py
 ----
 This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
 #### Creating table of Taiwan's democracy ratings
@@ -53,7 +55,7 @@ Filtered out Taiwan's polity score for each year and saved this brief table as _
 Cleaned data into two dictionaries: `allies` paired each year (key) with a list of all countries that did have official diplomatic relations with Taiwan at that time, and `polity` paired each country (key) with a second dictionary using years as keys and polity scores as values. From this, the script translated each year into a list of all polity scores associated with Taiwan's diplomatic partners and output one dataframe grouping country lists and polity score lists by year. I added column `totalnum` summing the number of diplomatic allies (number of values in either list) per year. Saved into _`dippol.csv`_.
 #### Charts and analysis
 Output line graph _`taiwanpol.png`_, a visualization of how 'democratic' Taiwan's government has been over time. Output line graph _`allies.png`_, a chart of `totalnum` over `year`. Output graph set _`ex1.png`_, a yearly snapshot of the types of regimes that chose to recognize Taiwan based on their polity scores. more detail TBA
-### 4. compgraphs.py
+### 5. compgraphs.py
 ----
 This script combines data from the previous scripts and builds graphs with `PANDAS` layering different data trends over each other.
 #### Comparing TEDS data to U.S. military aid
@@ -61,7 +63,7 @@ Output _`placeholder.png`_.
 #### Comparing TEDS data to Taiwan's democracy ratings
 Output _`moreplaceholder.png`_.
 ## Summary/Conclusions
-//TBA, DRAFT 
+//TBA, VERY DRAFT 
 #### Output charts and graphs
 TBA
 
