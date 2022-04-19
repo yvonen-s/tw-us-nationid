@@ -1,10 +1,10 @@
-# Comparing Trends in Taiwanese Election and Democratization Data, (Diplomatic Relationships) and U.S.-to-Taiwan Military Aid
+# Comparing Trends in Taiwanese Election and Democratization Data and U.S.-to-Taiwan Military Aid
 ## Project Overview 
-TBA, draft
+//TBA, DRAFT
 
-There have always been highly contentious 'Cross-strait' relations between Taiwan and mainland China, in which China maintains ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted as separately governed bodies without violent conflict, and Taiwan has operated with much _de jure_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has made increasing efforts to strengthen its policy relationships with the U.S. 
+'Cross-strait' relations between Taiwan (R.O.C.) and mainland China (P.R.C.) have always been deeply contentious. China maintains it has ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted as separately governed bodies without violent conflict, and Taiwan has operated with _de jure_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has made increasing efforts to strengthen its policy relationships with the U.S. 
 
-The U.S. is statutorily committed to providing Taiwan with arms for its national defense under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit military aid committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). Its support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over authoritative regimes.
+The U.S. is statutorily committed to providing Taiwan with arms for its national defense under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit military aid committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over authoritative regimes.
 
 This project uses Taiwanese Election and Democratization polling data, public U.S. federal government military spending data and the third party Polity Score metric for assessing democratic/autocratic governance to explore the following questions:
 
@@ -15,12 +15,14 @@ This project uses Taiwanese Election and Democratization polling data, public U.
 
 Note: Taiwan's primary national defense concern is potential attack from China, which is why it is linked to Cross-strait relations. It maintains a defensive military. The U.S. is Taiwan's primary source of military aid.
 ## Data 
-TBA, sources at end - 
-Analysis runs 2012-2021 as these are the only years with complete election/democratization data
-
-Coded translation from Chinese characters to English text
+//TBA, DRAFT 
+- Sources at the end 
+- Analysis runs 2012-2021 as these are the only years with complete election/democratization data
+- Might remove polity score data altogether if results are unhelpful (it's looking like they might be)
+- Coded translation from Chinese characters to English text
 
 ## Scripts
+//TBA, DRAFT 
 ### 1. aidmerge.py
 ----
 #### Building merged dataframe summing different types of U.S. military aid 
@@ -59,6 +61,7 @@ Output _`placeholder.png`_.
 #### Comparing TEDS data to Taiwan's democracy ratings
 Output _`moreplaceholder.png`_.
 ## Summary
+//TBA, DRAFT 
 #### Output charts and graphs
 TBA
 
@@ -77,9 +80,3 @@ My attempts to compare partners' Polity Scores with Taiwan's election and democr
 - Section 655 U.S. Annual Military Assistance Reports, U.S. Defense Security Cooperation Agency (DSCA)
 - U.S. Foreign Assistance Database, U.S. Department of State and USAID: http://foreignassistance.gov
 - U.S. Overseas Loans and Grants Greenbook, USAID
-## Process Notes
-- Merged data generated in _`aidmerge.py`_ should not be considered an exact accounting of U.S. military aid to Taiwan. It is a piecemeal combination of all the major transactions I could identify, but there are other types of military aid that are unavailable to the public, vaguely classified, tangentially related and/or originating in other unexpected U.S. federal agencies (thus easily overlooked). Hopefully these data points still hold a roughly similar relationship to each other year-over-year, so this comparison of relative data _trends_ is more meaningful than their stated values. 
-- There are many other interesting questions in the TEDS data which I considered examining, including a measure of national identitification and degree of overall engagement in politics and the democratic process. For manageability, I chose questions that seemed most directly applicable to Cross-strait military concerns.
-- Would also have been interesting to compare data to actual actions taken by Taiwanese government, or actions taken by mainland Chinese government, but this is not easy data to find or create. Same applies to attitudes of U.S. citizens regarding U.S. aid to Taiwan.
-- Originally wanted to calculate major arms sales as a percentage of Taiwanese military spending, but because the Taiwanese fiscal year begins on January 1 and the U.S. fiscal year begins on October 1 of the previous year, and the U.S. data does not specify specific months where sales were made, it became too complicated to sort and synchronize with Taiwanese government budget data.
-
