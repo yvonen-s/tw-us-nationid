@@ -13,7 +13,7 @@ This project uses Taiwanese Election and Democratization polling data, public U.
 - Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance**?
 - (_maaaaybe_) Considering Taiwan's public perception as a symbol of democracy, what are the governance qualities of its few diplomatic allies?
 
-Note: Taiwan's primary national defense concern is potential attack from China, which is why it is linked to Cross-strait relations. It maintains a defensive military. The U.S. is Taiwan's primary source of military aid.
+Note: Taiwan's primary (pretty much only) national defense concern is potential attack from China, which is why it is linked to Cross-strait relations. It maintains a defensive military. The U.S. is Taiwan's primary source of military aid.
 ## Data 
 //TBA, DRAFT 
 - Sources at the end 
