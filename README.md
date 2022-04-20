@@ -4,15 +4,16 @@
 
 'Cross-strait' relations between Taiwan (R.O.C.) and mainland China (P.R.C.) have always been deeply contentious. China maintains it has ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted without violent conflict, and Taiwan has operated with _de facto_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has increased efforts to strengthen its policy relationships with the U.S. 
 
-The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes (Taiwan held its first democratic election in 1996).
+The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
-This project uses Taiwanese Election and Democratization polling data, public U.S. federal government military spending data, other Taiwanese opinion surveys and a third party Polity Score metric for assessing democratic/autocratic governance to explore the following questions:
+This project uses Taiwanese Election and Democratization survey data, public U.S. federal government military spending data, the Taiwanese National Security Survey to explore the following questions:
 
-- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of Cross-strait relations and national defense**, and the **urgency of these issues** changed over time? How have their **attitudes towards the U.S.** changed over time?
+- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, **government handling of these issues** and the **urgency of these issues** changed over time? 
+- How have their **opinions of the U.S.** and their **belief in U.S. military support** changed over time?
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the above trends in Taiwanese political attitudes? 
 - _(may remove this component, data results are not looking interesting rn)_ Do trends in either Taiwanese political attitudes or U.S. military spending have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic allies**? 
 
-Note: Taiwan's pretty much only national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military with questionability capability and limited active recruits, despite mandatory conscription terms. The U.S. is Taiwan's primary source of military aid.
+Note: Taiwan's pretty much only national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military of limited size and capability. The U.S. is Taiwan's primary source of military aid in all forms.
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
@@ -40,19 +41,22 @@ Taiwan’s Election and Democratization Study (TEDS) is a continual large-scale 
 I selected four major questions from the "TEDS Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction", which has been conducted 4 times a year since 2012:
 1. Considering the relationship between Taiwan and mainland China, which of the following six positions do you agree with: (1) Immediate unification; (2) Immediate independence; (3) Maintain status quo and move towards unification in future; (4) Maintain status quo and move towards independence in future; (5) Maintain status quo, decide on unification or independence in future; (6) Maintain status quo forever
 2. How satisfied are you with the president's performance in national defense?
-3. How satisfied are you with the president's performance in Cross-strait relations?
-4. What is the highest priority concern the president should address (other than COVID-19, for the most recent years)?
-5. _//There is also a 'how much do you trust the mainland Chinese government' scale question which could yield interesting analysis, could code weighted average for each survey if i have time_
+3. What is the highest priority concern the president should address (other than COVID-19, for the most recent years)?
+4. How much do you trust the mainland Chinese government (scale of 0-10)?
 
 Each survey "wave" is originally a separate datafile. I chose to use aggregate data with all responses expressed as the percentage of total respondents who held that sentiment. They were first run through by the `translate.py` script.
 
-This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by `dateID` with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`), Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`) and Q3 (same as Q2). With regard to Q4, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. Output as **_`tedssorted.csv`_**.
+This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by `dateID` with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
 TBD, have to convert data to chartable values and group / `matplotlib.pyplot`, `int()`
 ### 3. twusop.py
 ----
-#### Sorting survey data on local Taiwanese people's attitudes towards the U.S.
-TBD
+#### Aggregating and cleaning data on local Taiwanese people's attitudes towards the U.S.
+Selected questions from data:
+#### Aggregating and cleaning national security study data
+Selected questions from Taiwan National Security Study (TNSS) poll data:
+1. Do you believe Taiwan's military is capable of defending the island against an attack from China?
+2. Do you believe that the U.S. will send troops to help Taiwan if it declares independence from China?
 #### Charts and analysis
 TBD
 ### 4. aidmerge.py
@@ -76,15 +80,17 @@ This script reads data from `dipreg.csv`, a table of all countries, their diplom
 
 #### Trim data for comparison down to matching time periods and add common merge keys
 TBD
-#### Comparing data
+#### Comparing data between different opinion poll datasets
 TBD TBD
+#### Comparing election/democratization and military aid data
 ## Summary/Conclusions
 TBD
 ## Data and Sources
-#### Taiwanese Election and Democratization Data:
+#### Taiwanese Election and Democratization Data/Other Opinion Poll Data:
 - Taiwan's Election and Democratization Study (TEDS), Taiwan Ministry of Science and Technology: http://teds.nccu.edu.tw/main.php
 - Polity IV Scores for Individual Country Regime Trends, Center for Systemic Peace: http://www.systemicpeace.org/polityproject.html
 - Diplomatic Recognition of Taiwan, Timothy S. Rich/Inter-University Consortium for Public and Social Research: https://www.icpsr.umich.edu/web/ICPSR/studies/30802/summary
+- Taiwan National Security Study (SNSS), Election Study Center of Taiwan’s National Chengchi University (supported by Duke University Program in Asian Security Studies)
 #### Military Aid and Spending Data: 
 - Taiwan: Major U.S. Arms Sales Since 1990, Shirley A. Kan/Congressional Research Service  
 - Arms Sales, Security Assistance Spending and Foreign Military Training Databases, CIP Security Assistance Monitor: https://securityassistance.org
