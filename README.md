@@ -1,6 +1,6 @@
 # Comparing Trends in Taiwanese Election and Democratization Data and U.S.-to-Taiwan Military Aid
 ## Project Overview and Context
-//////////////TBD, DRAFT 
+//////////////DRAFT 
 
 'Cross-strait' relations between Taiwan (R.O.C.) and mainland China (P.R.C.) have always been deeply contentious. China maintains it has ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted without violent conflict, and Taiwan has operated with _de facto_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has increased efforts to strengthen its policy relationships with the U.S. 
 
@@ -11,8 +11,6 @@ This project uses Taiwanese election and democratization opinion survey data and
 - How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, and the **urgency of these issues** changed over time? 
 - How has **belief in U.S. military support** and **attitudes towards U.S., Taiwanese and Chinese governments** changed over time?
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the above trends in Taiwanese political attitudes? 
-
-Notes: Taiwan's pretty much only national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military of limited size and capability. The U.S. is Taiwan's primary source of military aid in all forms.
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
@@ -41,11 +39,10 @@ Each survey "wave" is originally a separate datafile. I chose to use aggregate d
 
 This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by `dateID` with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
-TBD, have to convert data to chartable values and group / `matplotlib.pyplot`, `int()`
+TBD, have to convert data to chartable values and group etc etc etc
 ### 3. twusop.py
 ----
 #### Aggregating and cleaning data on local Taiwanese people's attitudes towards the U.S.
-Selected questions from data:
 #### Aggregating and cleaning national security study data
 Selected questions from Taiwan National Security Study (TNSS) poll data:
 1. Do you believe Taiwan's military is capable of defending the island against an attack from China?
