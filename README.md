@@ -6,7 +6,7 @@
 
 The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
-This project uses Taiwanese Election and Democratization survey data, public U.S. federal government military spending data, the Taiwanese National Security Survey to explore the following questions:
+This project uses Taiwanese opinion survey data and public U.S. federal government military spending data to explore the following questions:
 
 - How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, **government handling of these issues** and the **urgency of these issues** changed over time? 
 - How have their **opinions of the U.S.** and their **belief in U.S. military support** changed over time?
