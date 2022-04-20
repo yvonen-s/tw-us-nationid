@@ -6,7 +6,7 @@
 
 The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). The U.S. is Taiwan's primary source of military aid in all forms. U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
-This project creates a comprehensive database of U.S. military aid to Taiwan which does not currently exist and can be used to analyze spending over time. It then pulls and organizes years of Taiwanese election, democratization and security survey data specifically describing Taiwanese political attitudes towards independence, national defense, U.S. military support and U.S./Taiwanese/Chinese governments, using it to graph changes in political attitudes over time and compare them to foreign aid trends.
+This project creates a comprehensive database of U.S. military aid to Taiwan which does not currently exist and can be used to analyze spending over time. It then pulls and organizes years of Taiwanese election, democratization and security survey data specifically describing Taiwanese political attitudes towards independence, national defense, U.S. military support and U.S./Taiwanese/Chinese governments, using it to graph changes in political attitudes over time and compare them to foreign aid trends. Since data is drawn directly from uniformly structured institutional reports, ideally the scripts can be continue to be run on future data as it is released. 
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
@@ -47,18 +47,21 @@ TBD
 Tracks six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`cip_arms_sales_by_year.csv`), security assistance spending (`cip_security_asst_by_year.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`EDA_Public_Report.csv`), foreign assistance purposed for military assistance objectives (`foreignassistance.csv`) and overseas loans and grants for military spending (`us_foreign_greenbook.csv`, pulled from API). Original datasets are not consistently formatted, so filters out Taiwan-specific and purpose-specific data from global datasets and converts all year and spending values to `integers`. I manually checked the year range of each dataset and then trimmed them all to match the most limited range (2003-2021). Continues to search each dataset to ensure it contains values for all years in that time period, and if not creates and appends new data entry for each missing year with expenditures of $0. For datasets breaking down aid by individual allocations, codes equation to `sum()` all into single totals per year. Merges these six cleaned datasets together under common key value `year` and saves into **_`aidmerge.csv`_**, a file listing the value of military foreign aid the U.S. provided to Taiwan each year, by type and overall (new `totalsum` column).
 
 Notes:
-- **This is likely not an exact accounting of U.S. military aid to Taiwan.** Assistance is issued by multiple federal agencies and can be vaguely classified and/or tangentially related; some transactions may be unavailable to the public. I could not find existing datasets collecting all this information in one place. However, I hope they capture enough of the largest foreign transactions so that their relationships to each other sufficiently simulate actual trends. This is why the analysis focuses on relative changes over time.
+- **This is likely not an exact accounting of U.S. military aid to Taiwan.** Assistance is issued by multiple federal agencies and can be vaguely classified and/or tangentially related; some transactions may be unavailable to the public. However, I hope they capture enough of the largest foreign transactions so that their relationships to each other sufficiently simulate actual trends. This is why the analysis focuses on relative changes over time.
 - Because of differences between the amounts of U.S. foreign arms sales that are notified, approved and delivered, major arms sales is represented in three corresponding columns `Notified Sales`, `Approved Sales`, `Delivered Sales`. The `totalsum` of aid provided per year uses only the amount `Delivered Sales`. 
 - Foreign military training and excess defense articles, which are 'in kind' forms of aid, had to be converted to representative monetary amounts; approximation values were pre-provided by the issuing bodies. 
 #### Charts and analysis
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
 ### 5. dippol.py
 ----
-**_//DRAFT..*
+///draft draft draft
+
 - This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
+
+functions/loops
 ### 6. compgraphs.py
 ----
-//TBD, VERY DRAFT
+//VERY DRAFT
 
 This script combines data from the previous scripts and builds graphs layering different data trends over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
