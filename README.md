@@ -21,8 +21,7 @@ Summary of repository files in `README_CONTENTS.md`.
 - Sources at end 
 - TEDS/military spending analysis runs 2012-2020 as election opinion data collection begain in 2012 and not all military data had updates for 2021. Individual trend charts may cover more extensive time periods.
 - Not using TEDS microdata so will not be charting changes in individual attitudes over time, only national percentages
-- No regression analysis or causal conclusions, they could run either way anyways
-- More specific information for datasets and commands in scripts themselves
+- More specific information re: datasets and commands in `README_CONTENTS.md` and scripts themselves
 ## Scripts
 //TBD, DRAFT 
 ### 1. translate.py
