@@ -1,6 +1,6 @@
 # Comparing Trends in Taiwanese Election and Democratization Data and U.S.-to-Taiwan Military Aid
 ## Project Overview and Context
-//////////////DRAFT 
+_//////////////DRAFT///////////_
 
 'Cross-strait' relations between Taiwan (R.O.C.) and mainland China (P.R.C.) have always been deeply contentious. China maintains it has ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted without violent conflict, and Taiwan has operated with _de facto_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has increased efforts to strengthen its policy relationships with the U.S. 
 
@@ -18,7 +18,7 @@ Summary of repository files in `README_CONTENTS.md`.
 ## Data 
 placeholder
 ## Scripts
-//TBD, DRAFT 
+_////////DRAFT. scripts currently private because I am a mess/////////_
 
 Six total scripts. Script 1 (`translate.py`) should be run first to translate Chinese input files, and Script 6 (`compgraphs.py`) should be run last as it depends on outputs from the previous scripts. The rest can be run in-between in any order.
 ### 1. translate.py
@@ -61,13 +61,13 @@ Notes:
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
 ### 5. dippol.py
 ----
-///draft draft draft
+_///draft draft draft_
 #### Voting pattern data for KMT and DPP
 script loops through election data
 
 ### 6. compgraphs.py
 ----
-//VERY DRAFT
+_//VERY DRAFT_
 
 This script combines data from the previous scripts and builds graphs layering different data trends over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
