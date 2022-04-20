@@ -16,12 +16,6 @@ Notes: Taiwan's pretty much only national defense concern is potential Chinese i
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
-//TBD, DRAFT NOTES
-- All TW data is taken from _people living in Taiwan_, not overseas Taiwanese
-- Sources at end 
-- TEDS/military spending analysis runs 2012-2020 as election opinion data collection begain in 2012 and not all military data had updates for 2021. Individual trend charts may cover more extensive time periods.
-- Not using TEDS microdata so will not be charting changes in individual attitudes over time, only national percentages
-- More specific information re: datasets and commands in `README_CONTENTS.md` and scripts themselves
 ## Scripts
 //TBD, DRAFT 
 
@@ -71,8 +65,7 @@ Notes:
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
 ### 5. dippol.py
 ----
-**_//DRAFT - PROBABLY WON'T USE THIS ANY MORE_**
-Originally interested in exploring if trends in either Taiwanese political attitudes or U.S. military spending have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic allies**. Data results so far are pretty uninteresting and limited so nixing this idea
+**_//DRAFT..*
 - This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
 ### 6. compgraphs.py
 ----
@@ -80,12 +73,6 @@ Originally interested in exploring if trends in either Taiwanese political attit
 
 This script combines data from the previous scripts and builds graphs layering different data trends over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
-#### Comparing attitudes towards Taiwanese government, U.S. government and Chinese government with amounts of military aid
-#### Comparing belief in U.S. military support with amounts of military aid
-#### Comparing attitudes towards independence with amounts of military aid
-#### Comparing attitudes towards Taiwanese government with amounts of military aid
-#### Comparing belief in U.S. military support with attitudes towards Taiwanese government
-#### Comparing attitudes towards independence with opinions on U.S., Taiwanese and Chinese governments
 ## Summary/Conclusions
 TBD
 ## Data and Sources
