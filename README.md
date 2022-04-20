@@ -24,7 +24,7 @@ Six total scripts. Script 1 (`translate.py`) should be run first to translate Ch
 ### 1. translate.py
 ----
 #### Translating Chinese character data to English text
-This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in scripts `teds.py` and `twusop.py`. In addition to English translation it also prevents issues with Chinese characters becoming unreadable when saved to local .csv or .xlsx files. I only coded translations for the data entries I planned to analyze as the rest will later be dropped.  
+This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in scripts `teds.py` and `twusop.py`. In addition to English translation it also prevents issues with Chinese characters becoming unreadable when saved to local .csv or .xlsx files. I only coded translations for the data entries I planned to analyze as the rest will later be dropped, but this script could be built out to quickly translate these specific surveys in full.  
 
 Reads datasets into variable `teds`. Renames Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. Creates dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (e.g. `approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Uses `.replace()` method with `{'Satisfaction Level':approvallist}` (and so on) as argument and saves for later use.
 ### 2. teds.py 
