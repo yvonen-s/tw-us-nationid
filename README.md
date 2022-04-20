@@ -12,7 +12,7 @@ This project:
 3. Gathers and loops through Taiwanese election data, using equations to analyze how support for the two main political parties (Kuomintang/Chinese Nationalist Party and Democratic Progressive Party) have shifted over time. 
 4. Generates graphs and charts illustrating these changes in political attitudes, voting and U.S. military spending separately and in comparison to each other, observing for any patterns that might be jumping off points for more rigorous study.
 
-Since data is drawn directly from uniformly structured and regularly released datasets, ideally the scripts can be continue to be run on future data from the same sources as it is released. 
+Since input data is drawn directly from uniformly structured and regularly released datasets, ideally the scripts can continue to be run on future information releases.
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
