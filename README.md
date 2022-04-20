@@ -55,8 +55,8 @@ Tracks six major types of military aid that the U.S. has provided to Taiwan: maj
 
 Notes:
 - **This is likely not an exact accounting of U.S. military aid to Taiwan.** Assistance is issued by multiple federal agencies and can be vaguely classified and/or tangentially related; some transactions may be unavailable to the public. However, I hope they capture enough of the largest foreign transactions so that their relationships to each other sufficiently simulate actual trends. This is why the analysis focuses on relative changes over time moreso than the amounts (there is no budget analysis).
+- When graphing trends in this project I am valuating all forms of aid absolutely regardless of whether they are grants, loans or sales. 'In kind' aid (foreign military training and excess defense articles) is converted to representative monetary amounts based on approximation values that were provided in the raw data. Delineated types of aid could be extracted from the dataframe separately to do different kinds of analysis. 
 - Because of differences between the amounts of U.S. foreign arms sales that are notified, approved and delivered, major arms sales is represented in three corresponding columns `Notified Sales`, `Approved Sales`, `Delivered Sales`. The `totalsum` of aid provided per year uses only the amount `Delivered Sales`. 
-- Foreign military training and excess defense articles, which are 'in kind' forms of aid, had to be converted to representative monetary amounts; approximation values/rates were pre-provided by the issuing bodies. 
 #### Charts and analysis
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
 ### 5. dippol.py
