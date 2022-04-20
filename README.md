@@ -6,10 +6,10 @@
 
 The U.S. is statutorily committed to providing Taiwan with arms for its national defense under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit military aid committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over authoritative regimes.
 
-This project uses Taiwanese Election and Democratization polling data, public U.S. federal government military spending data and the third party Polity Score metric for assessing democratic/autocratic governance to explore the following questions:
+This project uses Taiwanese Election and Democratization polling data, public U.S. federal government military spending data, third party Taiwanese opinion surveys and a third party Polity Score metric for assessing democratic/autocratic governance to explore the following questions:
 
-- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of Cross-strait relations and national defense** and the **urgency of these issues** changed over time? 
-- How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the trends in Taiwanese political attitudes?
+- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **government handling of Cross-strait relations and national defense** the **urgency of these issues** changed over time? 
+- How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the above trends in Taiwanese political attitudes? How do they compare to trends in Taiwanese people's **attitudes towards the U.S.**?
 - _(may remove this component, data results are not looking interesting rn)_ Do these trends in Taiwanese political attitudes have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic alliancess**? 
 
 Note: Taiwan's primary (pretty much only) national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military with questionability capability and limited active recruits despite mandatory conscription terms. The U.S. is Taiwan's primary source of military aid.
@@ -17,6 +17,7 @@ Note: Taiwan's primary (pretty much only) national defense concern is potential 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
 //TBD, DRAFT NOTES
+- All TW data is taken from _people living in Taiwan_, not overseas Taiwanese
 - Sources at end 
 - Analysis runs 2012-2020 as election opinion data collection begain in 2012 and not all military data had updates for 2021
 - Not using TEDS microdata so will not be charting changes in individual attitudes over time, only national percentages
@@ -47,7 +48,13 @@ Each survey "wave" is originally a separate datafile. I chose to use aggregate d
 This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by `dateID` with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`), Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`) and Q3 (same as Q2). With regard to Q4, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
 TBD, have to convert data to chartable values and group by question / `matplotlib.pyplot`, `int()`
-### 3. aidmerge.py
+### 3. twusop.py
+----
+#### Sorting survey data on local Taiwanese people's attitudes towards the U.S.
+TBD
+#### Charts and analysis
+TBD
+### 4. aidmerge.py
 ----
 #### Building merged dataframe summing different types of U.S. military aid each year
 Tracks six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`cip_arms_sales_by_year.csv`), security assistance spending (`cip_security_asst_by_year.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`EDA_Public_Report.csv`), foreign assistance purposed for military assistance objectives (`foreignassistance.csv`) and overseas loans and grants for military spending (`us_foreign_greenbook.csv`, pulled from API). Original datasets are not consistently formatted, so filters out Taiwan-specific and purpose-specific data from global datasets, trims to analysis time period, and converts all year and spending values to `integers`. For datasets breaking down aid by individual allocations, codes equation to `sum()` all into single totals per year. Searches each dataset to ensure it contains values for all years in that time period, and if not creates and appends new data entry for each missing year with expenditures of $0. Merges these six cleaned datasets together under common key value `year` and saves into **_`aidmerge.csv`_**, a file listing the value of military foreign aid the U.S. provided to Taiwan each year, by type and overall (new `totalsum` column).
@@ -58,21 +65,13 @@ Notes:
 - Foreign military training and excess defense articles, which are 'in kind' forms of aid, had to be converted to representative monetary amounts; approximation values were pre-provided by the issuing bodies. 
 #### Charts and analysis
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
-### 4. dippol.py
+### 5. dippol.py
 ----
-**_//DRAFT - PROBABLY WON'T DO THIS_**
+**_//DRAFT - PROBABLY WON'T USE THIS ANY MORE_**
 This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
 ### 5. compgraphs.py
 ----
 //TBD, VERY DRAFT
-
-This script combines data from the previous scripts and builds graphs layering different data trends over each other.
-#### Parsing total military aid data so datasets can be merged on same key/graphed on same scale
-#### Comparing TEDS data to U.S. military aid
-Output graph(s)
-#### Comparing Household Survey data to U.S. military aid
-#### Comparing TEDS data to measures of democratic governance
-_//prob won't run this analysis_ Output graph
 ## Summary/Conclusions
 TBD
 ## Data and Sources
