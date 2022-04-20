@@ -8,10 +8,9 @@ The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relat
 
 This project uses Taiwanese election and democratization opinion survey data and public U.S. federal government military spending data to explore the following questions:
 
-- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, **government handling of these issues** and the **urgency of these issues** changed over time? 
-- How have their **opinions of the U.S. and Chinese governments** and their **belief in U.S. military support** changed over time?
+- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, and the **urgency of these issues** changed over time? 
+- How has **belief in U.S. military support** and **attitudes towards U.S., Taiwanese and Chinese governments** changed over time?
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the above trends in Taiwanese political attitudes? 
-- _(may remove this component, data results are not looking interesting rn)_ Do trends in either Taiwanese political attitudes or U.S. military spending have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic allies**? 
 
 Notes: Taiwan's pretty much only national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military of limited size and capability. The U.S. is Taiwan's primary source of military aid in all forms.
 
@@ -73,19 +72,20 @@ Output line graph of total spending over time, **_`aidmerge.png`_**. Output char
 ### 5. dippol.py
 ----
 **_//DRAFT - PROBABLY WON'T USE THIS ANY MORE_**
-This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
+Originally interested in exploring if trends in either Taiwanese political attitudes or U.S. military spending have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic allies**. Data results so far are pretty uninteresting and limited so nixing this idea
+- This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
 ### 6. compgraphs.py
 ----
 //TBD, VERY DRAFT
 
 This script combines data from the previous scripts and builds graphs layering different data trends over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
-#### Comparing data between different opinion poll datasets
-#### Comparing election/democratization data and military aid data
-#### Comparing opinions on U.S. government with amounts of military aid
+#### Comparing attitudes towards Taiwanese government, U.S. government and Chinese government with amounts of military aid
 #### Comparing belief in U.S. military support with amounts of military aid
-#### Comparing attitudes towards Taiwanese security governance with amounts of military aid
-#### Comparing attitudes toward independence with opinions on U.S., Taiwanese and Chinese governments
+#### Comparing attitudes towards independence with amounts of military aid
+#### Comparing attitudes towards Taiwanese government with amounts of military aid
+#### Comparing belief in U.S. military support with attitudes towards Taiwanese government
+#### Comparing attitudes towards independence with opinions on U.S., Taiwanese and Chinese governments
 ## Summary/Conclusions
 TBD
 ## Data and Sources
