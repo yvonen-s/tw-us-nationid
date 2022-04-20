@@ -6,10 +6,17 @@
 
 The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). The U.S. is Taiwan's primary source of military aid in all forms. U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
-This project creates a comprehensive database of U.S. military aid to Taiwan which does not currently exist and can be used to analyze spending over time. It then pulls and organizes years of Taiwanese election, democratization and security survey data specifically describing Taiwanese political attitudes towards independence, national defense, U.S. military support and U.S./Taiwanese/Chinese governments, using it to graph changes in political attitudes over time and compare them to foreign military aid trends. Of particular interest, questions in these datasets ask citizens about **stances on seeking _de jure_ independence**, **whether they believe U.S. will indeed provide military assistance in an instance of Chinese invasion**, **degree of trust in Taiwanese government's handling of national security** and **degree of trust towards the mainland Chinese government**. Finally, the project gathers Taiwanese election data to map how voting patternsfor the two main political parties (Kuomintang/Chinese Nationalist Party and Democratic Progressive Party) have shifted as U.S. military support has changed. Since data is drawn directly from uniformly structured institutional reports, ideally the scripts can be continue to be run on future data as it is released. 
+This project: 
+1. Creates a comprehensive aggregated database of U.S. military aid to Taiwan which does not currently exist and can be used to analyze spending  trends over time. 
+2. Pulls, translates and organizes years of Taiwanese election, democratization and security survey data specifically describing Taiwanese political attitudes towards independence, national defense, and U.S./Taiwanese/Chinese governments. Of particular interest, questions in these datasets ask citizens about **stances on seeking _de jure_ independence**, **whether they believe U.S. will indeed provide military assistance in an instance of Chinese invasion**, **degree of trust in Taiwanese government's handling of national security** and **degree of trust towards the mainland Chinese government**. 
+3. Gathers and loops through Taiwanese election data to map how voting patterns for the two main political parties (Kuomintang/Chinese Nationalist Party and Democratic Progressive Party) have shifted as these political attitudes and U.S. military support has changed. 
+4. Generates graphs and charts illustrating these changes in political attitudes, voting and U.S. military spending so that they can be compared to each other to observe for any patterns that might merit more rigorous study.
+
+Since data is drawn directly from uniformly structured and regularly released datasets, ideally the scripts can be continue to be run on future data from the same sources as it is released. 
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
+placeholder
 ## Scripts
 //TBD, DRAFT 
 
@@ -35,12 +42,12 @@ Each survey "wave" is originally a separate datafile. I chose to use aggregate d
 
 This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by question with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
-TBD
+placeholder
 ### 3. twusop.py
 ----
 #### Aggregating and cleaning national security study data
 #### Charts and analysis
-TBD
+placeholder
 ### 4. aidmerge.py
 ----
 #### Building merged dataframe summing different types of U.S. military aid each year
@@ -55,10 +62,9 @@ Output line graph of total spending over time, **_`aidmerge.png`_**. Output char
 ### 5. dippol.py
 ----
 ///draft draft draft
+#### Voting pattern data for KMT and DPP
+script loops through election data
 
-- This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
-
-functions/loops
 ### 6. compgraphs.py
 ----
 //VERY DRAFT
@@ -66,8 +72,8 @@ functions/loops
 This script combines data from the previous scripts and builds graphs layering different data trends over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
 ## Summary/Conclusions
-TBD
-## Data and Sources
+placeholder
+## Sources
 #### Taiwanese Election and Democratization Data:
 - Taiwan's Election and Democratization Study (TEDS), Taiwan Ministry of Science and Technology: http://teds.nccu.edu.tw/main.php
 - Taiwan National Security Study (SNSS), Election Study Center of Taiwan’s National Chengchi University (supported by Duke University Program in Asian Security Studies)
