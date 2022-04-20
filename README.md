@@ -39,14 +39,10 @@ Each survey "wave" is originally a separate datafile. I chose to use aggregate d
 
 This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by `dateID` with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
-TBD, have to convert data to chartable values and group etc etc etc
+TBD
 ### 3. twusop.py
 ----
-#### Aggregating and cleaning data on local Taiwanese people's attitudes towards the U.S.
 #### Aggregating and cleaning national security study data
-Selected questions from Taiwan National Security Study (TNSS) poll data:
-1. Do you believe Taiwan's military is capable of defending the island against an attack from China?
-2. Do you believe that the U.S. will send troops to help Taiwan if it declares independence from China?
 #### Charts and analysis
 TBD
 ### 4. aidmerge.py
@@ -73,11 +69,12 @@ This script combines data from the previous scripts and builds graphs layering d
 ## Summary/Conclusions
 TBD
 ## Data and Sources
-#### Taiwanese Election and Democratization Data/Other Opinion Poll Data:
+#### Taiwanese Election and Democratization Data:
 - Taiwan's Election and Democratization Study (TEDS), Taiwan Ministry of Science and Technology: http://teds.nccu.edu.tw/main.php
+- Taiwan National Security Study (SNSS), Election Study Center of Taiwan’s National Chengchi University (supported by Duke University Program in Asian Security Studies)
+#### Governance Data
 - Polity IV Scores for Individual Country Regime Trends, Center for Systemic Peace: http://www.systemicpeace.org/polityproject.html
 - Diplomatic Recognition of Taiwan, Timothy S. Rich/Inter-University Consortium for Public and Social Research: https://www.icpsr.umich.edu/web/ICPSR/studies/30802/summary
-- Taiwan National Security Study (SNSS), Election Study Center of Taiwan’s National Chengchi University (supported by Duke University Program in Asian Security Studies)
 #### Military Aid and Spending Data: 
 - Taiwan: Major U.S. Arms Sales Since 1990, Shirley A. Kan/Congressional Research Service  
 - Arms Sales, Security Assistance Spending and Foreign Military Training Databases, CIP Security Assistance Monitor: https://securityassistance.org
