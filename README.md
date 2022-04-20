@@ -28,7 +28,7 @@ Summary of repository files in `README_CONTENTS.md`.
 ### 1. translate.py
 ----
 #### Translating Chinese character data to English text
-This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in script `teds.py`. I only coded translations for the data I planned to analyze as the rest will later be dropped.  
+This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in scripts `teds.py` and `twusop.py`. I only coded translations for the data I planned to analyze as the rest will later be dropped.  
 
 Reads datasets into variable `teds`. Renames Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. Creates dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (`approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Uses `.replace()` method with `{'Satisfaction Level':approvallist}` as argument and saves to `.csv` for later use.
 ### 2. teds.py 
@@ -47,7 +47,7 @@ Each survey "wave" is originally a separate datafile. I chose to use aggregate d
 
 This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by `dateID` with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`), Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`) and Q3 (same as Q2). With regard to Q4, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
-TBD, have to convert data to chartable values and group by question / `matplotlib.pyplot`, `int()`
+TBD, have to convert data to chartable values and group / `matplotlib.pyplot`, `int()`
 ### 3. twusop.py
 ----
 #### Sorting survey data on local Taiwanese people's attitudes towards the U.S.
@@ -69,7 +69,7 @@ Output line graph of total spending over time, **_`aidmerge.png`_**. Output char
 ----
 **_//DRAFT - PROBABLY WON'T USE THIS ANY MORE_**
 This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
-### 5. compgraphs.py
+### 6. compgraphs.py
 ----
 //TBD, VERY DRAFT
 ## Summary/Conclusions
