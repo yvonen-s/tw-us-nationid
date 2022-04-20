@@ -6,14 +6,14 @@
 
 The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
-This project uses Taiwanese opinion survey data and public U.S. federal government military spending data to explore the following questions:
+This project uses Taiwanese election and democratization opinion survey data and public U.S. federal government military spending data to explore the following questions:
 
 - How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, **government handling of these issues** and the **urgency of these issues** changed over time? 
-- How have their **opinions of the U.S.** and their **belief in U.S. military support** changed over time?
+- How have their **opinions of the U.S. and Chinese governments** and their **belief in U.S. military support** changed over time?
 - How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the above trends in Taiwanese political attitudes? 
 - _(may remove this component, data results are not looking interesting rn)_ Do trends in either Taiwanese political attitudes or U.S. military spending have any relation to the **development of Taiwanese democratic governance** and/or changes in its **diplomatic allies**? 
 
-Note: Taiwan's pretty much only national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military of limited size and capability. The U.S. is Taiwan's primary source of military aid in all forms.
+Notes: Taiwan's pretty much only national defense concern is potential Chinese invasion, which is why it is closely associated to Cross-strait relations. It maintains a defensive military of limited size and capability. The U.S. is Taiwan's primary source of military aid in all forms.
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
@@ -35,7 +35,7 @@ This script runs a replacement translation function through Taiwanese-originatin
 Reads datasets into variable `teds`. Renames Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. Creates dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (e.g. `approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Uses `.replace()` method with `{'Satisfaction Level':approvallist}` (and so on) as argument and saves for later use.
 ### 2. teds.py 
 ----
-#### Aggregating and cleaning election and democratization data
+#### Aggregating and cleaning TEDS election and democratization data
 Taiwan’s Election and Democratization Study (TEDS) is a continual large-scale survey research project supported by the  Taiwanese Ministry of Science and Technology. Its chief purpose is to integrate several election-oriented face-to-face surveys in Taiwan.
 
 I selected four major questions from the "TEDS Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction", which has been conducted 4 times a year since 2012:
