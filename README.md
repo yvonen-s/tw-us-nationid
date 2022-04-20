@@ -24,6 +24,8 @@ Summary of repository files in `README_CONTENTS.md`.
 - More specific information re: datasets and commands in `README_CONTENTS.md` and scripts themselves
 ## Scripts
 //TBD, DRAFT 
+
+Six total scripts. Script 1 (`translate.py`) should be run first to translate Chinese input files, and Script 6 (`compgraphs.py`) should be run last as it depends on outputs from the previous scripts. The rest can be run in-between in any order.
 ### 1. translate.py
 ----
 #### Translating Chinese character data to English text
