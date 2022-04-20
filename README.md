@@ -78,11 +78,14 @@ This script reads data from `dipreg.csv`, a table of all countries, their diplom
 ----
 //TBD, VERY DRAFT
 
+This script combines data from the previous scripts and builds graphs layering different data trends over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
-TBD
 #### Comparing data between different opinion poll datasets
-TBD TBD
-#### Comparing election/democratization and military aid data
+#### Comparing election/democratization data and military aid data
+#### Comparing opinions on U.S. government with amounts of military aid
+#### Comparing belief in U.S. military support with amounts of military aid
+#### Comparing attitudes towards Taiwanese security governance with amounts of military aid
+#### Comparing attitudes toward independence with opinions on U.S., Taiwanese and Chinese governments
 ## Summary/Conclusions
 TBD
 ## Data and Sources
