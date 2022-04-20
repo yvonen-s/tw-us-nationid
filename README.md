@@ -60,19 +60,18 @@ Notes:
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
 ### 4. dippol.py
 ----
-**_//DRAFT - MAY REMOVE_**. _OG planned script output would not be chartable against other data so could only function as dictionary reformatting of data/snapshot of distribution per year, also Taiwan's polity scores barely changed during small time period for TEDS data (all post-martial law), probably getting too tangential + it hurts my brain
-
+**_//DRAFT - PROBABLY WON'T DO THIS_**
 This script reads data from `dipreg.csv`, a table of all countries, their diplomatic relationship status with Taiwan and their Polity Scores in each year. Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions" and ranks regime authority on a 21-point scale ranging from -10 (hereditary monarchy) to +10 (consolidated democracy). 
 ### 5. compgraphs.py
 ----
 //TBD, VERY DRAFT
 
 This script combines data from the previous scripts and builds graphs layering different data trends over each other.
-#### Parsing total military aid data to standardize units of time (x-axis variable)
-As the TEDS data is collected quarterly while military aid statistics are yearly, grouped aid data in the merged aid dataframe needs to be expanded by splitting and duplicating year entries into new `yearID`s corresponding with the four TEDS quarters in that same year. This allows data to be merged on the same key and graphed on the same scale when using a line graph.
+#### Parsing total military aid data so datasets can be merged on same key/graphed on same scale
 #### Comparing TEDS data to U.S. military aid
 Output graph(s)
-#### Comparing TEDS data to Taiwan's democracy ratings
+#### Comparing Household Survey data to U.S. military aid
+#### Comparing TEDS data to measures of democratic governance
 _//prob won't run this analysis_ Output graph
 ## Summary/Conclusions
 TBD
