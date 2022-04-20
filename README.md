@@ -4,13 +4,9 @@
 
 'Cross-strait' relations between Taiwan (R.O.C.) and mainland China (P.R.C.) have always been deeply contentious. China maintains it has ownership over Taiwan as a "renegade province" and condemns any country which extends Taiwan official diplomatic recognition. Despite this, for many years the two have tenously coexisted without violent conflict, and Taiwan has operated with _de facto_ independence. In recent years, China has escalated its threats of forcible reunification while the Taiwanese government has increased efforts to strengthen its policy relationships with the U.S. 
 
-The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
+The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). The U.S. is Taiwan's primary source of military aid in all forms. U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
-This project uses Taiwanese election and democratization opinion survey data and public U.S. federal government military spending data to explore the following questions:
-
-- How have Taiwanese people's political attitudes towards **Cross-strait relations** (specifically, declaring indepence vs. pursuing reunification), **national defense**, and the **urgency of these issues** changed over time? 
-- How has **belief in U.S. military support** and **attitudes towards U.S., Taiwanese and Chinese governments** changed over time?
-- How has the amount of **U.S. military aid to Taiwan** changed over time, and how does this compare to the above trends in Taiwanese political attitudes? 
+This project creates a comprehensive database of U.S. military aid to Taiwan which does not currently exist and can be used to analyze spending over time. It then pulls and organizes years of Taiwanese election, democratization and security survey data specifically describing Taiwanese political attitudes towards independence, national defense, U.S. military support and U.S./Taiwanese/Chinese governments, using it to graph changes in political attitudes over time and compare them to foreign aid trends.
 
 Summary of repository files in `README_CONTENTS.md`.
 ## Data 
