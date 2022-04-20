@@ -6,3 +6,10 @@
 NOT YET PUBLIC
 """
 
+# Creating unique survey ID
+
+title = 'TED2013_PA04'
+titleyear = title[3:7]
+titlequarter = title[10:12]
+titleid = "".join([titleyear,titlequarter])
+
