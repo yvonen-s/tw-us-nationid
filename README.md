@@ -7,10 +7,10 @@ _//////////////DRAFT///////////_
 The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relations Act of 1979, though they have refused to formally acknowledge Taiwan as a sovereign nation. Bills proposing additional, explicit diplomatic and defensive committments to Taiwan are currently active in the U.S. federal legislature (e.g. Taiwan Defense Act, Arm Taiwan Act of 2021). It is Taiwan's largest source of military aid in all forms. U.S. support of Taiwan can be viewed as part of an overall foreign policy mission to support democratic governance over autocratic regimes.
 
 This project: 
-1. Creates a comprehensive aggregated database of U.S. military aid to Taiwan which does not currently exist publicly and can be used to analyze military support trends over time. 
+1. Creates a comprehensive aggregated dataframe of U.S. military aid to Taiwan which does not currently exist publicly and can be used to analyze military support spending trends over time. Identifies brief statistics of interest.
 2. Pulls, translates and organizes years of Taiwanese election, democratization and security survey data specifically describing Taiwanese resident citizens' political attitudes towards independence, national defense, and U.S./Taiwanese/Chinese governments. I have specifically focused on questions which ask about **stances on seeking _de jure_ independence**, **whether they believe U.S. will indeed provide military assistance in an instance of Chinese invasion**, **degree of trust in Taiwanese government's handling of national security** and **degree of trust towards the mainland Chinese government**. 
-3. Gathers and loops through Taiwanese election data, using equations to analyze how support for the two main political parties (Kuomintang/Chinese Nationalist Party and Democratic Progressive Party) has shifted over time. Identifies periods of greatest fluctuations.
-4. Generates graphs and charts illustrating these changes in political attitudes, voting and U.S. military spending separately and in comparison to each other, observing for any patterns that might be jumping off points for more rigorous study.
+3. Charts and compares Chinese and Taiwanese democratic/autocratic regime characteristics over time using Polity Score data, building visualizations for each country which illustrate the different dimensions of political governance. 
+4. Generates graphs from these three new datasets illustrating trends in aid expenditures, political attitudes and regime characteristics and comparing them to one another, observing for patterns that might be jumping off points for more rigorous study.
 
 Since input data is drawn directly from regularly published data reports, ideally the scripts can continue to be run on future releases from the same sources.
 
@@ -18,7 +18,7 @@ Summary of repository files in `README_CONTENTS.md`.
 ## Data 
 placeholder
 ## Scripts
-_////////DRAFT. scripts currently private because I am a mess/////////_
+_////////DRAFT. scripts currently private/////////_
 
 Six total scripts. Script 1 (`translate.py`) should be run first to translate Chinese input files, and Script 6 (`compgraphs.py`) should be run last as it depends on outputs from the previous scripts. The rest can be run in-between in any order.
 ### 1. translate.py
@@ -45,31 +45,41 @@ This script goes through each file and filters out only the data for the four qu
 chop strings so can be charted properly. placeholder
 ### 3. twusop.py
 ----
+_////DRAFT///_
+
 #### Aggregating and cleaning national security study data
+very similar process to `teds.py`, just using question from a different dataset. decide if want to append together or not. may also just drop this data
 #### Charts and analysis
 placeholder
 ### 4. aidmerge.py
 ----
-#### Building merged dataframe summing different types of U.S. military aid each year
-Tracks six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`cip_arms_sales_by_year.csv`), security assistance spending (`cip_security_asst_by_year.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`EDA_Public_Report.csv`), foreign assistance purposed for military assistance objectives (`foreignassistance.csv`) and overseas loans and grants for military spending (`us_foreign_greenbook.csv`, pulled from API). Filters out Taiwan-specific and purpose-specific data from global datasets, converts all year and spending values to `integers` and trims datasets to drop all years before 2003 (the earliest record of the most limited dataset). Uses six individualized command sets (since they are all formatted differently) to pull this data into a standardized dataframe `aidmerge`, with a new `sourcetype` column that groups each set of data according to type of aid (source). (Major Arms Sales data is split into three types, see notes). Checks each group to ensure it contains at least one value for all years in that time period, and if not creates and appends new data entry for each missing year with expenditures of $0. For groups with multiple data entries per year (meaning the original dataset broke down aid by individual allocations), sums all into single totals per year then drops the individual allocations. Now that each group has exactly one corresponding value per year, merges all together on `year` into **_`aidmerge.csv`_**, a file listing the value of military foreign aid the U.S. provided to Taiwan each year, by type and overall (new `totalsum` column).
-
-Notes:
-- **This is likely not an exact accounting of U.S. military aid to Taiwan.** Assistance is issued by multiple federal agencies and can be vaguely classified and/or tangentially related; some transactions may be unavailable to the public. However, I hope they capture enough of the largest foreign transactions so that their relationships to each other sufficiently simulate actual trends. This is why the analysis focuses on relative changes over time moreso than the amounts (there is no budget analysis).
-- When graphing trends in this project I am valuating all forms of aid absolutely regardless of whether they are grants, loans or sales. 'In kind' aid (foreign military training and excess defense articles) is converted to representative monetary amounts based on approximation values that were provided in the raw data. Delineated types of aid could be extracted from the dataframe separately to do different kinds of analysis. 
-- Because of differences between the amounts of U.S. foreign arms sales that are notified, approved and delivered, major arms sales is represented as three `Notified Sales`, `Approved Sales`, `Delivered Sales`. The `totalsum` of aid provided per year uses only the amount `Delivered Sales`. 
+#### Building merged dataframe combining and summing different types of U.S. military aid each year
+Tracks six major types of military aid that the U.S. has provided to Taiwan: major arms sales (`cip_arms_sales_by_year.csv`), security assistance spending (`cip_security_asst_by_year.csv`), foreign military training (`cipfmt.csv`), excess defense articles (`EDA_Public_Report.csv`), foreign assistance purposed for military assistance objectives (`foreignassistance.csv`) and overseas loans and grants for military spending (`us_foreign_greenbook.csv`, pulled from API). These datasets were all issued by different agencies. Filters out Taiwan-specific and purpose-specific data from global datasets, converts all year and spending values to `integers` and trims datasets to drop all years before 2003 (the earliest record of the most limited dataset). Uses six individualized command sets (since they are all formatted differently) to pull this data into a standardized dataframe `aidmerge`, with a new `sourcetype` column that groups each set of data according to type of aid (source). (Major Arms Sales data is split into three types - see notes below.) Checks each group to ensure it contains at least one value for all years in that time period, and if not creates and appends new data entry for each missing year with expenditures of $0. For groups with multiple data entries per year (meaning the original dataset broke down aid by individual allocations), sums all into single totals per year then drops the individual allocations. Now that each group has exactly one corresponding value per year, merges all together on `year` into **_`aidmerge.csv`_**, a file listing the value of military foreign aid the U.S. provided to Taiwan each year, by type and overall (new `totalsum` column).
+#### Calculating basic statistics
+Prints a summary report identifying years in this range with the **highest** and **lowest** amounts of military aid spending, in total and for each subcategory. 
 #### Charts and analysis
 Output line graph of total spending over time, **_`aidmerge.png`_**. Output charts of select types of spending over time, relative to each other, **_`aidtypes.png`_**.
+#### Important notes
+- **This is likely not an exact accounting of U.S. military aid to Taiwan.** Assistance is issued by multiple federal agencies and can be vaguely classified and/or tangentially related; some transactions may be unavailable to the public. However, I hope they capture enough of the largest foreign transactions so that their relationships to each other sufficiently simulate actual trends. This is why the analysis focuses only on changes over time and relative statistics.
+- When graphing trends in this project I am valuating all forms of aid absolutely regardless of whether they are grants, loans or sales. 'In kind' aid (foreign military training and excess defense articles) is converted to representative monetary amounts based on approximation values that were provided in the raw data. Delineated types of aid could be extracted from the dataframe separately to do different kinds of analysis. 
+- Because of differences between the amounts of U.S. foreign arms sales that are notified, approved and delivered, major arms sales is represented as three `Notified Sales`, `Approved Sales`, `Delivered Sales`. The `totalsum` of aid provided per year uses only the amount `Delivered Sales`. 
+**_`aidtypes.png`_**.
 ### 5. dippol.py
 ----
 _///draft draft draft_
-#### Voting pattern data for KMT and DPP
-script loops through election data
+#### Scrapes Polity Score data on China and Taiwan regime characteristics
+Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions", which assigns scores to countries based on different regime characteristics. This script reads score data from the global Polity5 Project report `polityscores.csv` into a dataframe, filters to data on `Taiwan` and `China` only, groups by `country` and outputs new dataset **_`roc-prc-polity.csv`_**. 
+#### Charts China and Taiwan government development towards democratic characteristics over time
+Examines each country's development in different governance scores. I selected five specific variables: `democ` (institutionalized democracy indicator), `autoc` (institutionalized autocracy indicator), `polity` (overall regime authority score ranked on 21-pt scale, ranging from -10 hereditary monarchy to +10 consolidated democracy), `xcont` (executive constraints, measure of executive authority independence) and `xrcomp` (competitiveness of executive selection). Detailed definitions and methodology behind these variables is in `polity5manual.pdf`. 
 
+Script generates charts for each country showing year-to-year changes as well as visualizations of how data could be interpreted to understand dimensions of democracy and autocracy. It also generates comparison line graphs layering Chinese and Taiwanese raw score trends on top of each other, using a year-trimmed version of the full dataset (Chinese data starts from 1800 whereas Taiwanese data begins in 1949, the year that the R.O.C. government evacuated mainland China and relocated to the island of Taiwan).
+#### Output analysis
+placeholder
 ### 6. compgraphs.py
 ----
 _//VERY DRAFT_
 
-This script combines data from the previous scripts and builds graphs layering different data trends over each other.
+This script combines data from the previous scripts and builds graphs layering different trends from different dataframes over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
 ## Summary/Conclusions
 placeholder
