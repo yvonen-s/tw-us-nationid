@@ -9,7 +9,7 @@ The U.S. is pledged to provide Taiwan with defensive arms under the Taiwan Relat
 This project: 
 1. Creates a comprehensive dataframe of U.S. military aid to Taiwan by combining multiple data sources. This does not currently exist publicly and can be used to analyze U.S. military support spending trends over time. Identifies years with highest/lowest spending by aid type and overall.
 2. Combines, translates and organizes years of Taiwanese election, democratization and security survey poll data on Taiwanese resident citizens' political attitudes towards seeking _de jure_ independence, the Taiwanese government's handling of national security, the trustworthiness of the mainland Chinese government and whether or not the U.S. will actually honor its military commitment in instance of China's invasion.
-3. Compiles and compares Chinese and Taiwanese democratic/autocratic regime characteristics over time using Polity Score data, building visualizations for each country which illustrate the different dimensions of political governance. 
+3. Compares Chinese and Taiwanese democratic/autocratic regime characteristics over time using Polity Score data, building visualizations for each country which illustrate different dimensions of political governance and democratic development. 
 4. Generates graphs from these three new datasets illustrating trends in aid expenditures, political attitudes and regime characteristics and comparing them to one another, observing for patterns that might be jumping off points for more rigorous study.
 
 Since input data is drawn directly from regularly published data reports, ideally the scripts can continue to be run on future releases from the same sources.
