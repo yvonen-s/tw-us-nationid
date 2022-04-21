@@ -43,9 +43,7 @@ Reads datasets into variable `teds`. Renames Chinese character column headings t
 ### 2. teds.py 
 ----
 #### Aggregating and cleaning TEDS election and democratization data
-Taiwan’s Election and Democratization Study (TEDS) is a continual large-scale survey research project supported by the  Taiwanese Ministry of Science and Technology. Its chief purpose is to integrate several election-oriented face-to-face surveys in Taiwan.
-
-I selected four major questions from the quarterly administered "TEDS Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction":
+I selected four major questions from the quarterly administered "Taiwan's Election and Democratization Study (TEDS) Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction":
 1. Considering the relationship between Taiwan and mainland China, which of the following six positions do you agree with: (1) Immediate unification; (2) Immediate independence; (3) Maintain status quo and move towards unification in future; (4) Maintain status quo and move towards independence in future; (5) Maintain status quo, decide on unification or independence in future; (6) Maintain status quo forever
 2. How satisfied are you with the president's performance in national defense?
 3. What is the highest priority concern the president should address (other than COVID-19, for the most recent years)?
@@ -55,7 +53,7 @@ I chose to use aggregate data with all responses expressed as the percentage of 
 
 This script goes through each separate survey file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by dateID with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
-chop strings so can be charted properly. placeholder
+strings/integers so can be charted properly. placeholder
 ### 3. twusop.py
 ----
 _////DRAFT///_
