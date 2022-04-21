@@ -12,35 +12,48 @@ This project:
 3. Compares Chinese and Taiwanese democratic/autocratic regime characteristics over time using Polity Score data, building visualizations for each country which illustrate different dimensions of political governance and democratic development. 
 4. Generates graphs from these three new datasets illustrating trends in aid expenditures, political attitudes and regime characteristics and comparing them to one another, observing for patterns that might be jumping off points for more rigorous study.
 
-Since input data is drawn directly from regularly published data reports, ideally the scripts can continue to be run on future releases from the same sources.
+Since most of the input data is drawn directly from regularly published data reports, ideally the scripts can continue to be run on future releases from the same sources.
 
-Summary of repository files in `README_CONTENTS.md`.
+Summary of repository files in `README_CONTENTS.md`. Final outputs are two sets of **translated Chinese input files**, three **dataframes** and TBD **charts**.
 ## Data 
-placeholder
+There are three categories of source data. Descriptions and detailed comments on how to retrieve data are in notes.
+#### 1. Taiwanese Election and Democratization Data
+- Taiwan's Election and Democratization Study (TEDS), Taiwan Ministry of Science and Technology. _Multiple datafiles of survey data published quarterly._ 
+- Taiwan National Security Study (SNSS), Election Study Center of Taiwan’s National Chengchi University supported by Duke University Program in Asian Security Studies. _Multiple datafiles of survey data published annually._
+#### 2. Regime Governance Data
+- Polity IV Scores for Individual Country Regime Trends, Center for Systemic Peace. _Global datafile covering years 1800-2018._
+#### 3. Military Aid and Spending Data
+- Arms Sales, Security Assistance Spending and Foreign Military Training Databases, CIP Security Assistance Monitor. _Three datafiles covering each category over multiple years. You can download global or individual country datafiles, Taiwan-only data used here._
+- Excess Defense Articles (EDA) Public Report, U.S. Department of State. _Global datafile covering years XXXX(need to check)_.
+- Section 655 U.S. Annual Military Assistance Reports, U.S. Defense Security Cooperation Agency (DSCA). _Multiple global budget datafiles published annually._
+- U.S. Foreign Assistance Database, U.S. Department of State and USAID. _Global datafile covering multiple years. You can pre-filter variables using their interface then download the customized datasets, which was done here._
+- U.S. Overseas Loans and Grants Greenbook, USAID. _Global datafile covering multiple years. Retrieved via API._
 ## Scripts
-_////////DRAFT. scripts currently private/////////_
+_////////DRAFT////////_
 
-Six total scripts. Script 1 (`translate.py`) should be run first to translate Chinese input files, and Script 6 (`compgraphs.py`) should be run last as it depends on outputs from the previous scripts. The rest can be run in-between in any order.
+Six scripts. Script 1 (`translate.py`) should be run first to translate Chinese input files, and Script 6 (`compgraphs.py`) should be run last as it depends on outputs from the previous scripts. The rest (`teds.py`, `twusop.py`, `aidmerge.py` and `dippol.py`) can be run in-between in any order.
+
+Scripts 2-5 each draw from different data source(s) and generate graphs based only on that specific data, while Script 6 draws from the cleaned dataframes produced in those four scripts to generate graphs comparing trends from all sources. Step-by-step comments included in all scripts.
 ### 1. translate.py
 ----
 #### Translating Chinese character data to English text
-This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in scripts `teds.py` and `twusop.py`. In addition to English translation it also prevents issues with Chinese characters becoming unreadable when saved to local .csv or .xlsx files. I only coded translations for the data entries I planned to analyze as the rest will later be dropped, but this script could be built out to quickly translate these specific surveys in full.  
+This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in scripts `teds.py` and `twusop.py`. In addition to English translation it also prevents issues with Chinese characters becoming unreadable when saved to local .csv or .xlsx files. I only coded translations for basic fields/the five questions I examine as the rest will later be dropped, but this script could be built out to quickly translate surveys in full.  
 
-Reads datasets into variable `teds`. Renames Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. Creates dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (e.g. `approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Uses a for loop to automatically apply `.replace()` method with `{'Satisfaction Level':approvallist}` (and so on) as arguments and saves translated .csv.
+Reads datasets into variable `teds`. Renames Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. Creates dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (e.g. `approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Uses a for loop to automatically apply `.replace()` method with `{'Satisfaction Level':approvallist}` (and so on) as arguments and saves __*translated .csv*__.
 ### 2. teds.py 
 ----
 #### Aggregating and cleaning TEDS election and democratization data
 Taiwan’s Election and Democratization Study (TEDS) is a continual large-scale survey research project supported by the  Taiwanese Ministry of Science and Technology. Its chief purpose is to integrate several election-oriented face-to-face surveys in Taiwan.
 
-I selected four major questions from the "TEDS Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction", which has been conducted 4 times a year since 2012:
+I selected four major questions from the quarterly administered "TEDS Telephone and Mobile Phone Interview Survey of the Presidential Satisfaction":
 1. Considering the relationship between Taiwan and mainland China, which of the following six positions do you agree with: (1) Immediate unification; (2) Immediate independence; (3) Maintain status quo and move towards unification in future; (4) Maintain status quo and move towards independence in future; (5) Maintain status quo, decide on unification or independence in future; (6) Maintain status quo forever
 2. How satisfied are you with the president's performance in national defense?
 3. What is the highest priority concern the president should address (other than COVID-19, for the most recent years)?
 4. How much do you trust the mainland Chinese government (scale of 0-10)?
 
-Each survey "wave" is originally a separate datafile. I chose to use aggregate data with all responses expressed as the percentage of total respondents who held that sentiment. They were first run through by the `translate.py` script.
+I chose to use aggregate data with all responses expressed as the percentage of total respondents who held that sentiment. They were first run through by the `translate.py` script.
 
-This script goes through each file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by dateID with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
+This script goes through each separate survey file and filters out only the data for the four questions (including question number). It converts percentages to integers and adds a `dateID` column identifying the survey wave: as original name format is `TEDS{year}_PA{quarter}`, script cuts and joins the string to form a new 6-character ID (`TEDS2013_PA09` becomes `201309`). It then adds everything to a new dataframe eventually containing total survey data between 2012-2020. Data is reformatted and grouped by dateID with columns for each corresponding response value of Q1 (`unification`, `independence`, `squnification`, `sqindependence`, `sqidk`, `sqforever`) and Q2 (`vsatisfact`, `satisfact`, `nsatisfact`, `nallsatisfact`, `noopinion`, `refuse` and `idk`). With regard to Q3, the code extracts only the proportion of people who answered Cross-strait relations as their highest priority concern, inputs this number for the survey group as new column `xstrait` and drops the rest of the input answers for that question. With regard to Q4, the code computes a weighted average of all responses, inputs into new column `prctrust` and drops the rest of the response data. Output as **_`tedssorted.csv`_**.
 #### Charts and analysis
 chop strings so can be charted properly. placeholder
 ### 3. twusop.py
@@ -67,13 +80,13 @@ Output line graph of total spending over time, **_`aidmerge.png`_**. Output char
 ### 5. dippol.py
 ----
 _///draft draft draft_
-#### Scrapes Polity Score data on China and Taiwan regime characteristics
+#### Extracting Polity Score data on China and Taiwan regime characteristics
 Polity Scores are a third-party metric examining "concomitant qualities of democratic and autocratic authority in governing institutions", which assigns scores to countries based on different regime characteristics. This script reads score data from the global Polity5 Project report `polityscores.csv` into a dataframe, filters to data on `Taiwan` and `China` only, groups by `country` and outputs new dataset **_`roc-prc-polity.csv`_**. 
-#### Charts China and Taiwan government development towards democratic characteristics over time
+#### Charting China and Taiwan government development towards democratic characteristics over time
 Examines each country's development in different governance scores. I selected five specific variables: `democ` (institutionalized democracy indicator), `autoc` (institutionalized autocracy indicator), `polity` (overall regime authority score ranked on 21-pt scale, ranging from -10 hereditary monarchy to +10 consolidated democracy), `xcont` (executive constraints, measure of executive authority independence) and `xrcomp` (competitiveness of executive selection). Detailed definitions and methodology behind these variables is in `polity5manual.pdf`. 
 
 Script generates charts for each country showing year-to-year changes as well as visualizations of how data could be interpreted to understand dimensions of democracy and autocracy. It also generates comparison line graphs layering Chinese and Taiwanese raw score trends on top of each other, using a year-trimmed version of the full dataset (Chinese data starts from 1800 whereas Taiwanese data begins in 1949, the year that the R.O.C. government evacuated mainland China and relocated to the island of Taiwan).
-#### Output analysis
+#### Charts and analysis
 placeholder
 ### 6. compgraphs.py
 ----
@@ -81,6 +94,8 @@ _//VERY DRAFT_
 
 This script combines data from the previous scripts and builds graphs layering different trends from different dataframes over each other.
 #### Trim data for comparison down to matching time periods and add common merge keys
+#### Charts and analysis
+placeholder
 ## Summary/Conclusions
 placeholder
 ## Sources
@@ -89,7 +104,6 @@ placeholder
 - Taiwan National Security Study (SNSS), Election Study Center of Taiwan’s National Chengchi University (supported by Duke University Program in Asian Security Studies)
 #### Governance Data
 - Polity IV Scores for Individual Country Regime Trends, Center for Systemic Peace: http://www.systemicpeace.org/polityproject.html
-- Diplomatic Recognition of Taiwan, Timothy S. Rich/Inter-University Consortium for Public and Social Research: https://www.icpsr.umich.edu/web/ICPSR/studies/30802/summary
 #### Military Aid and Spending Data: 
 - Taiwan: Major U.S. Arms Sales Since 1990, Shirley A. Kan/Congressional Research Service  
 - Arms Sales, Security Assistance Spending and Foreign Military Training Databases, CIP Security Assistance Monitor: https://securityassistance.org
