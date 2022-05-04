@@ -37,9 +37,7 @@ Scripts 2-5 each draw from different data source(s) and generate graphs based on
 ### 1. translate.py
 ----
 #### Translating Chinese character data to English text
-This script runs a replacement translation function through Taiwanese-originating datasets which will later be used in scripts `teds.py` and `twusop.py`. In addition to English translation it also prevents issues with Chinese characters becoming unreadable when saved to local .csv or .xlsx files. I only coded translations for basic fields/the five questions I examine as the rest will later be dropped, but this script could be built out to quickly translate surveys in full.  
 
-Reads datasets into variable `teds`. Renames Chinese character column headings to English text using positional commands `teds.columns.values[0] = 'Survey Wave Number', teds.columns.values[1] = 'Satisfaction Level'`, etc. Creates dictionaries for each column using the predefined Chinese character answers as keys and English character names as values: (e.g. `approvallist = {'非常滿意':'vsatisfact', '非常不滿意':'nsatisfact'}`, etc.). Uses a for loop to automatically apply `.replace()` method with `{'Satisfaction Level':approvallist}` (and so on) as arguments and saves __*translated .csv*__.
 ### 2. teds.py 
 ----
 #### Aggregating and cleaning TEDS election and democratization data
